@@ -6,7 +6,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "deploy": "astro deploy"
   },
   "dependencies": {
     "astro": "^5.12.5"
