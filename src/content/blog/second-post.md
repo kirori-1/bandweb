@@ -2,6 +2,7 @@
 title: 2025夏季巡演筹备近况
 pubDate: 2025-05-28
 excerpt: 夏季巡演正在筹备中……
+heroImage: /bandweb/blog-placeholder-1.jpg 
 ---
 
 # Cover 曲子因素征集！

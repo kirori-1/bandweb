@@ -1,50 +1,50 @@
 ---
-import { getEntry, getCollection } from "astro:content";
-import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import { AstroError } from "astro/errors";
 
-// ⛓️ Step 1: 告诉 Astro 所有文章 slug
-export async function getStaticPaths() {
-  const posts = await getCollection("blog");
+// 1. 获取当前路由的 slug 参数
+const { slug } = Astro.params;
 
-  return posts.map((post: any) => ({
-  params: { slug: post.slug },
-  props: { slug: post.slug },
-}));
+// 2. 使用 import.meta.glob 导入所有博客文章（路径不能加 `/src` 开头）
+const postModules = import.meta.glob("../../content/blog/*.md");
 
+// 3. 构造文件路径
+const path = `../../content/blog/${slug}.md`;
+
+// 4. 检查路径是否存在，避免 404 报错
+if (!(path in postModules)) {
+  throw new Error(`未找到文章：${slug}`);
 }
+console.log(Object.keys(postModules));
+// 5. 动态导入对应的 Markdown 文件模块
+const mod = await postModules[path]();
 
-// 🧠 Step 2: 根据 slug 获取文章
-const { slug } = Astro.props;
-const entry = await getEntry("blog", slug);
-console.log("🧠 Slug:", slug);
-if (!entry) {
-  throw new AstroError(`未找到文章：${slug}`);
-}
-
-const { Content, data } = await entry.render();
+// 6. 拿到内容组件和前置数据
+const { default: Content, frontmatter } = mod;
 ---
 
 <html lang="zh-CN">
   <head>
-    <BaseHead title={data.title} description={data.excerpt ?? ""} />
+    <title>{frontmatter.title}</title>
   </head>
   <body>
     <Header />
     <main style="max-width: 800px; margin: auto; padding: 2rem;">
-      <h1>{data.title}</h1>
-      <p style="color: #06b6d4;">
-        {
-          data.pubDate?.toLocaleDateString("zh-CN", {
+      <h1 style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;">
+        {frontmatter.title}
+      </h1>
+      <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 1.5rem;">
+        📅 {
+          new Date(frontmatter.pubDate).toLocaleDateString("zh-CN", {
             year: "numeric",
             month: "long",
             day: "numeric",
-          }) ?? "没有发布日期"
+          })
         }
       </p>
-      <Content />
+      <article class="prose prose-invert">
+        <Content />
+      </article>
     </main>
     <Footer />
   </body>

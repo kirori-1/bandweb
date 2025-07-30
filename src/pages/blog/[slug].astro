@@ -1,0 +1,17 @@
+---
+export async function getStaticPaths() {
+  console.log('极简测试：getStaticPaths被调用');
+  return [
+    { params: { slug: 'test' } },
+  ];
+}
+
+const { slug } = Astro.params;
+---
+
+<html>
+  <body>
+    <h1>动态路由测试页面</h1>
+    <p>当前Slug: {slug}</p>
+  </body>
+</html>

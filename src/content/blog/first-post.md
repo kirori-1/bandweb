@@ -2,6 +2,7 @@
 title: 新单曲《夜のシンセサイザー》制作背后的故事
 pubDate: 2025-07-30
 excerpt: 摘要...
+heroImage: /bandweb/blog-placeholder-1.jpg 
 ---
 
 <!-- 因文档中已有标题信息在 front matter 里，移除重复的顶级标题 -->

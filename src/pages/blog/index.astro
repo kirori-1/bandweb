@@ -4,11 +4,11 @@ import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 
-const posts = await getCollection("blog");
-
 const BLOG_TITLE = "放课后音响部（暂定） - 博客";
 const BLOG_DESCRIPTION =
   "放课后音响部的官方博客，分享乐队最新动态、音乐创作心得和演出信息";
+
+const posts = await getCollection("blog");
 ---
 
 <html lang="zh-CN">
@@ -27,10 +27,10 @@ const BLOG_DESCRIPTION =
         style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; list-style: none; padding: 0;"
       >
         {
-          posts.map(({ slug, data }: { slug: string; data: any }) => (
-            <li style="background: #1e293b; border-radius: 12px; overflow: hidden;">
+          posts.map(({ slug, data }) => (
+            <li style="background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; overflow: hidden;">
               <a
-                href={`/blog/${slug}`}
+                href={`/bandweb/blog/${slug}`}
                 style="text-decoration: none; color: inherit;"
               >
                 {data.heroImage && (
@@ -43,13 +43,11 @@ const BLOG_DESCRIPTION =
                 <div style="padding: 1.2rem;">
                   <time style="color: #06b6d4; font-size: 0.85rem;">
                     📅{" "}
-                    {data.pubDate
-                      ? new Date(data.pubDate).toLocaleDateString("zh-CN", {
-                          year: "numeric",
-                          month: "short",
-                          day: "numeric",
-                        })
-                      : "未提供日期"}
+                    {data.pubDate.toLocaleDateString("zh-CN", {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })}
                   </time>
                   <h2 style="margin-top: 0.5rem; font-size: 1.3rem; font-weight: bold;">
                     {data.title}

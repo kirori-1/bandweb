@@ -2,6 +2,7 @@
 title: Cover 曲子因素征集！
 pubDate: 2025-07-30
 excerpt: 摘要..
+heroImage: /bandweb/blog-placeholder-1.jpg 
 ---
 
 # Cover 曲子因素征集！

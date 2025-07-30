@@ -2,6 +2,7 @@
 title: 乐队排练日记：夏日的旋律
 pubDate: 2025-07-30
 excerpt: 摘要...
+heroImage: /bandweb/blog-placeholder-1.jpg 
 ---
 
 # 乐队排练日记：夏日的旋律
