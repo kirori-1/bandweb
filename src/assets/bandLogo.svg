@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- 背景圆形 -->
+  <circle cx="120" cy="120" r="100" fill="url(#gradientBackground)" />
+  <!-- 音符 -->
+  <path d="M80 160V60c0-11 9-20 20-20s20 9 20 20v40" />
+  <path d="M140 160V40c0-11 9-20 20-20s20 9 20 20v70" />
+  <circle cx="100" cy="160" r="15" />
+  <circle cx="160" cy="160" r="15" />
+  <!-- 装饰元素 -->
+  <path d="M120 30l-10 20h20l-10-20z" />
+  <path d="M70 100l-10 20h20l-10-20z" />
+  <path d="M170 100l-10 20h20l-10-20z" />
+  <!-- 渐变定义 -->
+  <defs>
+    <linearGradient id="gradientBackground" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ec4899" />
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+  </defs>
+</svg>

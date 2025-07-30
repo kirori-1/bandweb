@@ -1,0 +1,51 @@
+---
+import { getEntry, getCollection } from "astro:content";
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { AstroError } from "astro/errors";
+
+// ⛓️ Step 1: 告诉 Astro 所有文章 slug
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+
+  return posts.map((post: any) => ({
+  params: { slug: post.slug },
+  props: { slug: post.slug },
+}));
+
+}
+
+// 🧠 Step 2: 根据 slug 获取文章
+const { slug } = Astro.props;
+const entry = await getEntry("blog", slug);
+console.log("🧠 Slug:", slug);
+if (!entry) {
+  throw new AstroError(`未找到文章：${slug}`);
+}
+
+const { Content, data } = await entry.render();
+---
+
+<html lang="zh-CN">
+  <head>
+    <BaseHead title={data.title} description={data.excerpt ?? ""} />
+  </head>
+  <body>
+    <Header />
+    <main style="max-width: 800px; margin: auto; padding: 2rem;">
+      <h1>{data.title}</h1>
+      <p style="color: #06b6d4;">
+        {
+          data.pubDate?.toLocaleDateString("zh-CN", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          }) ?? "没有发布日期"
+        }
+      </p>
+      <Content />
+    </main>
+    <Footer />
+  </body>
+</html>

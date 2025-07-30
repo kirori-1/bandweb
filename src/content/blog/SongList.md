@@ -1,3 +1,9 @@
+---
+title: Cover 曲子因素征集！
+pubDate: 2025-07-30
+excerpt: 摘要..
+---
+
 # Cover 曲子因素征集！
 
 ## 阿宇 gt

@@ -1,11 +1,223 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import bandLogo from "../assets/bandLogo.svg";
+// 乐队信息常量
+const BAND_NAME = "funk后音响部";
+const BAND_DESCRIPTION = "乐队";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <BaseHead title={BAND_NAME} description={BAND_DESCRIPTION} />
+    <style>
+      :root {
+        --primary: #ff4088;
+        --secondary: #7e22ce;
+        --accent: #06b6d4;
+        --dark: #0f172a;
+        --light: #f8fafc;
+      }
+
+      body {
+        background: linear-gradient(135deg, var(--dark), #1e1b4b);
+        color: var(--light);
+        min-height: 100vh;
+        margin: 0;
+        font-family: "Inter", sans-serif;
+      }
+
+      main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      .band-intro {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .band-logo {
+        width: 180px;
+        height: 180px;
+        margin-bottom: 2rem;
+        animation: pulse 3s infinite;
+      }
+
+      .band-name {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .band-description {
+        font-size: 1.2rem;
+        max-width: 700px;
+        margin-bottom: 2rem;
+        color: #cbd5e1;
+      }
+
+      .band-members {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .member-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border-radius: 12px;
+        padding: 1.5rem;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .member-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(255, 64, 136, 0.15);
+      }
+
+      .member-name {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: var(--light);
+      }
+
+      .member-role {
+        color: var(--accent);
+        margin-bottom: 1rem;
+        font-weight: 500;
+      }
+
+      .member-bio {
+        color: #94a3b8;
+        font-size: 0.95rem;
+      }
+
+      .highlight-section {
+        background: linear-gradient(
+          135deg,
+          rgba(126, 34, 206, 0.1),
+          rgba(6, 182, 212, 0.1)
+        );
+        border-radius: 16px;
+        padding: 2.5rem;
+        margin-top: 4rem;
+        text-align: center;
+      }
+
+      .highlight-title {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        color: var(--light);
+      }
+
+      .highlight-text {
+        max-width: 800px;
+        margin: 0 auto;
+        color: #cbd5e1;
+        font-size: 1.1rem;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.05);
+          opacity: 0.9;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .band-name {
+          font-size: 2.2rem;
+        }
+
+        .band-logo {
+          width: 140px;
+          height: 140px;
+        }
+
+        .highlight-section {
+          padding: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <section class="band-intro">
+        <img src={bandLogo.src} alt="{BAND_NAME} Logo" class="band-logo" />
+        <h1 class="band-name">{BAND_NAME}</h1>
+        <p class="band-description">{BAND_DESCRIPTION}</p>
+        <p>
+          我们，创造出独特的听觉体验。每一场演出都是一次穿越时空的音乐之旅。
+        </p>
+      </section>
+
+      <section class="highlight-section">
+        <h2 class="highlight-title">乐队特色</h2>
+        <p class="highlight-text">
+          
+        </p>
+      </section>
+
+      <h2 style="text-align: center; margin-top: 4rem; margin-bottom: 2rem;">
+        乐队成员
+      </h2>
+      <div class="band-members">
+        <div class="member-card">
+          <h3 class="member-name">李明</h3>
+          <p class="member-role">主唱 & 键盘手</p>
+          <p class="member-bio">
+            音乐制作人兼主唱，负责乐队大部分歌曲的创作和编曲。曾为多位流行歌手制作专辑，拥有丰富的音乐制作经验。
+          </p>
+        </div>
+        <div class="member-card">
+          <h3 class="member-name">张华</h3>
+          <p class="member-role">吉他手</p>
+          <p class="member-bio">
+            毕业于伯克利音乐学院，擅长 funk、soul 和 jazz
+            风格的吉他演奏。曾参与多部电影配乐的录制工作。
+          </p>
+        </div>
+        <div class="member-card">
+          <h3 class="member-name">王芳</h3>
+          <p class="member-role">贝斯手</p>
+          <p class="member-bio">
+            拥有扎实的古典音乐基础，将复杂的贝斯线条融入放克节奏中，创造出独特的低音声部。
+          </p>
+        </div>
+        <div class="member-card">
+          <h3 class="member-name">赵云</h3>
+          <p class="member-role">鼓手 & 打击乐手</p>
+          <p class="member-bio">
+            曾在多个国际音乐节担任鼓手，擅长多种风格的节奏演奏，为乐队的音乐提供坚实的节奏基础。
+          </p>
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>
