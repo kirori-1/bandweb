@@ -33,10 +33,10 @@ heroImage: /bandweb/blog-placeholder-1.jpg
 
 ## 幕后花絮
 
-![录音室照片](https://images.unsplash.com/photo-1517026575980-32438ff9a991?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)
+![录音室照片](/blog-placeholder-1.jpg)
 
 录制过程中，我们遇到了不少挑战，但也收获了很多乐趣。最难忘的是有一天深夜录音时，工作室突然停电，我们只能点着蜡烛继续工作，反而营造出了特别的氛围。
 
 希望大家喜欢这首《夜のシンセサイザー》，也期待在巡演中与大家见面！
 
-— 星屑Funk团 敬上
+—  敬上

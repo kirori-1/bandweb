@@ -5,7 +5,7 @@ excerpt: 摘要..
 heroImage: /bandweb/blog-placeholder-1.jpg 
 ---
 
-# Cover 曲子因素征集！
+
 
 ## 阿宇 gt
 
