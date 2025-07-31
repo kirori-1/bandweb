@@ -17,8 +17,5 @@ const isActive = href === pathname || href === '/' + (subpath?.[0] || '');
 		display: inline-block;
 		text-decoration: none;
 	}
-	a.active {
-		font-weight: bolder;
-		text-decoration: underline;
-	}
+	/* 移除与Header组件冲突的样式，以Header组件中的样式为准 */
 </style>
