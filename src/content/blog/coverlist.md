@@ -1,3 +1,9 @@
+---
+title: cover表格
+pubDate: 2025-07-30
+excerpt: 摘要...
+heroImage: /bandweb/blog-placeholder-1.jpg
+---
 | 歌曲 | 原唱 | 风格关键词 | 推荐理由 |
 |------|------|--------------|----------|
 | 花に亡霊（幽灵之花） | ヨルシカ | Indie Pop Rock | 有文艺气质，不炫技但气氛感好，谱子全，适合 |
